@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/note_nav"
+    app:startDestination="@id/listFrag">
+
+    <fragment
+        android:id="@+id/listFrag"
+        android:name="com.kluivert.mininoteapp.ui.fragments.list.ListFrag"
+        android:label="NoteList"
+        tools:layout="@layout/fragment_list" >
+        <action
+            android:id="@+id/action_listFrag_to_addNoteFrag"
+            app:destination="@id/addNoteFrag" />
+        <action
+            android:id="@+id/action_listFrag_to_updateFrag"
+            app:destination="@id/updateFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/addNoteFrag"
+        android:name="com.kluivert.mininoteapp.ui.fragments.add.AddNoteFrag"
+        android:label="AddNote"
+        tools:layout="@layout/fragment_add_note" >
+        <action
+            android:id="@+id/action_addNoteFrag_to_listFrag"
+            app:destination="@id/listFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFrag"
+        android:name="com.kluivert.mininoteapp.ui.fragments.update.UpdateFrag"
+        android:label="Update"
+        tools:layout="@layout/fragment_update" >
+        <action
+            android:id="@+id/action_updateFrag_to_listFrag"
+            app:destination="@id/listFrag" />
+        <argument
+            android:name="noteArgs"
+            app:argType="com.kluivert.mininoteapp.data.entities.NoteModel" />
+    </fragment>
+</navigation>
